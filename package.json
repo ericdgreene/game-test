@@ -1,0 +1,19 @@
+{
+  "name": "lesson1b",
+  "version": "1.0.0",
+  "description": "game testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericdgreene/game-test.git"
+  },
+  "author": "Eric D. Greene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericdgreene/game-test/issues"
+  },
+  "homepage": "https://github.com/ericdgreene/game-test#readme"
+}
