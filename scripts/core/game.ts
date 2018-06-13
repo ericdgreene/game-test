@@ -17,7 +17,7 @@
   }
 
   function Update(): void {
-    helloLabel.rotation += 3;
+    // helloLabel.rotation += 3;
     stage.update(); // redraws the stage
   }
 
