@@ -16,12 +16,17 @@
         Main();
     }
     function Update() {
-        // helloLabel.rotation += 3;
+        // helloLabel.rotation += 1.44;
+        helloLabel.scaleX = 1.5;
+        helloLabel.scaleY = 1.5;
+        // helloLabel.regX = 3;
         stage.update(); // redraws the stage
     }
     function Main() {
         console.log("Game started!");
-        helloLabel = new createjs.Text("CreateJS Game", "32px Arial, Helvetica", "#333333");
+        helloLabel = new createjs.Text("CreateJS Game", "32px Arial, Helvetica", "#CC6633");
+        helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
+        helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
         helloLabel.x = canvas.width * 0.5;
         helloLabel.y = canvas.height * 0.5;
         stage.addChild(helloLabel);
