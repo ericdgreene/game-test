@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ericdgreene/game-test/issues"
   },
-  "homepage": "https://github.com/ericdgreene/game-test#readme"
+  "homepage": "https://github.com/ericdgreene/game-test#readme",
+  "dependencies": {
+    "easeljs": "^1.0.2"
+  }
 }
