@@ -16,6 +16,7 @@
         Main();
     }
     function Update() {
+        helloLabel.rotation += 3;
         stage.update(); // redraws the stage
     }
     function Main() {

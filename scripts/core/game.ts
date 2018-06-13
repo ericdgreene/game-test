@@ -15,9 +15,12 @@
     createjs.Ticker.on("tick", Update); // call update function every 'tick' (frame)
     Main();
   }
+
   function Update(): void {
+    helloLabel.rotation += 3;
     stage.update(); // redraws the stage
   }
+
   function Main(): void {
     console.log("Game started!");
 
