@@ -10,8 +10,8 @@ namespace objects {
       fontSize: string,
       fontFamily: string,
       fontColor: string,
-      x: number,
-      y: number,
+      x: number = 0,
+      y: number = 0,
       isCentered: boolean = false
     ) {
       super(labelString, fontSize + " " + fontFamily, fontColor);

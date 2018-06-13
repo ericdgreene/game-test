@@ -17,6 +17,8 @@ var objects;
         // Public Properties
         // Constructor
         function Label(labelString, fontSize, fontFamily, fontColor, x, y, isCentered) {
+            if (x === void 0) { x = 0; }
+            if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
             var _this = _super.call(this, labelString, fontSize + " " + fontFamily, fontColor) || this;
             if (isCentered) {
