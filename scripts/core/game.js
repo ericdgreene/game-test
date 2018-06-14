@@ -4,6 +4,7 @@
     var canvas = document.getElementById("canvas");
     var stage;
     var helloLabel;
+    var btnStart;
     function Init() {
         console.log("Initializing game ...");
         Start();
@@ -16,7 +17,7 @@
         Main();
     }
     function Update() {
-        // helloLabel.rotation += 1.44;
+        helloLabel.rotation += 1.44;
         helloLabel.scaleX = 1.5;
         helloLabel.scaleY = 1.5;
         // helloLabel.regX = 3;

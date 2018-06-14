@@ -3,6 +3,7 @@
   let canvas: any = document.getElementById("canvas");
   let stage: createjs.Stage;
   let helloLabel: createjs.Text;
+  let btnStart: createjs.Bitmap;
 
   function Init(): void {
     console.log("Initializing game ...");
@@ -18,7 +19,7 @@
   }
 
   function Update(): void {
-    // helloLabel.rotation += 1.44;
+    helloLabel.rotation += 1.44;
     helloLabel.scaleX = 1.5;
     helloLabel.scaleY = 1.5;
     // helloLabel.regX = 3;
