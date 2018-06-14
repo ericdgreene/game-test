@@ -4,6 +4,7 @@
     var canvas = document.getElementById("canvas");
     var stage;
     var helloLabel;
+    // let btnStart: createjs.Bitmap;
     var btnStart;
     function Init() {
         console.log("Initializing game ...");
@@ -35,22 +36,24 @@
         helloLabel.y = canvas.height * 0.5;
         console.log("hl x: " + helloLabel.x + ", hl y: " + helloLabel.y);
         stage.addChild(helloLabel);
-        btnStart = new createjs.Bitmap("./assets/images/btn-start.png");
-        btnStart.regX = btnStart.getBounds().width * 0.5;
-        btnStart.regY = btnStart.getBounds().height * 0.5;
-        btnStart.x = 80;
-        btnStart.y = 40;
+        // btnStart = new createjs.Bitmap("./assets/images/btn-start.png");
+        btnStart = new objects.Button("./assets/images/btn-start.png", 10, 10);
+        // btnStart.regX = btnStart.getBounds().width * 0.5;
+        // btnStart.regY = btnStart.getBounds().height * 0.5;
+        // btnStart.x = 80;
+        // btnStart.y = 40;
         stage.addChild(btnStart);
-        btnStart.on("mouseover", btnStartMouseOver);
-        btnStart.on("mouseout", btnStartMouseOut);
+        // btnStart.on("mouseover", btnStartMouseOver);
+        // btnStart.on("mouseout", btnStartMouseOut);
         btnStart.on("click", btnStartClick);
     }
-    function btnStartMouseOver() {
-        btnStart.alpha = 0.5;
-    }
-    function btnStartMouseOut() {
-        btnStart.alpha = 1.0;
-    }
+    // function btnStartMouseOver(): void {
+    //   btnStart.alpha = 0.5;
+    // }
+    // these are not needed, now that they are part of the Button class.
+    // function btnStartMouseOut(): void {
+    //   btnStart.alpha = 1.0;
+    // }
     function btnStartClick() {
         console.log("button clicked");
         helloLabel.text = "Starting the game!!!";

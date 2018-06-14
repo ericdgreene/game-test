@@ -3,7 +3,11 @@ namespace objects {
     // Private instance variables
     // Public properties
     // Constructor
-    constructor(imagePath: string, x: number = 0, y: number = 0) {
+    constructor(
+      imagePath: string, 
+      x: number = 0, 
+      y: number = 0
+    ) {
       super(imagePath);
 
       this.x = x;
