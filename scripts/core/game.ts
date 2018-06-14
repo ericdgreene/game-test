@@ -1,3 +1,5 @@
+/// <reference path="_references.ts"/>
+
 (function() {
   // global game variables
   let canvas: any = document.getElementById("canvas");
