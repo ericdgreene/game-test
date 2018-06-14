@@ -1,4 +1,5 @@
 "use strict";
+/// <reference path="_references.ts"/>
 (function () {
     // global game variables
     var canvas = document.getElementById("canvas");
