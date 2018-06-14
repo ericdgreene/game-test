@@ -12,6 +12,7 @@
     function Start() {
         console.log("Starting application ...");
         stage = new createjs.Stage(canvas);
+        stage.enableMouseOver(20); // turn this on for buttons (leave out if no buttons)
         createjs.Ticker.framerate = 60; // sets to 60 fps
         createjs.Ticker.on("tick", Update); // call update function every 'tick' (frame)
         Main();
@@ -21,16 +22,44 @@
         helloLabel.scaleX = 1.5;
         helloLabel.scaleY = 1.5;
         // helloLabel.regX = 3;
+        // btnStart.rotation += 1;
         stage.update(); // redraws the stage
     }
     function Main() {
         console.log("Game started!");
         helloLabel = new createjs.Text("CreateJS Game", "32px Arial, Helvetica", "#CC6633");
-        helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
-        helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
+        helloLabel.regX = Math.floor(helloLabel.getMeasuredWidth() * 0.5);
+        helloLabel.regY = Math.floor(helloLabel.getMeasuredHeight() * 0.5);
+        console.log("hl regX: " + helloLabel.regX + ", hl regY: " + helloLabel.regY);
         helloLabel.x = canvas.width * 0.5;
         helloLabel.y = canvas.height * 0.5;
+        console.log("hl x: " + helloLabel.x + ", hl y: " + helloLabel.y);
         stage.addChild(helloLabel);
+        btnStart = new createjs.Bitmap("./assets/images/btn-start.png");
+        btnStart.regX = btnStart.getBounds().width * 0.5;
+        btnStart.regY = btnStart.getBounds().height * 0.5;
+        btnStart.x = 80;
+        btnStart.y = 40;
+        stage.addChild(btnStart);
+        btnStart.on("mouseover", btnStartMouseOver);
+        btnStart.on("mouseout", btnStartMouseOut);
+        btnStart.on("click", btnStartClick);
+    }
+    function btnStartMouseOver() {
+        btnStart.alpha = 0.5;
+    }
+    function btnStartMouseOut() {
+        btnStart.alpha = 1.0;
+    }
+    function btnStartClick() {
+        console.log("button clicked");
+        helloLabel.text = "Starting the game!!!";
+        helloLabel.regX = Math.floor(helloLabel.getMeasuredWidth() * 0.5);
+        helloLabel.regY = Math.floor(helloLabel.getMeasuredHeight() * 0.5);
+        console.log("hl regX: " + helloLabel.regX + ", hl regY: " + helloLabel.regY);
+        console.log("hl x: " + helloLabel.x + ", hl y: " + helloLabel.y);
+        helloLabel.text = helloLabel.text.toUpperCase();
+        // helloLabel.rotation += 0;
     }
     onload = Init;
 })();
