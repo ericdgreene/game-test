@@ -4,13 +4,31 @@
   // global game variables
   let canvas: any = document.getElementById("canvas");
   let stage: createjs.Stage;
-  let helloLabel: createjs.Text;
+  // let helloLabel: createjs.Text;
+  let helloLabel: objects.Label;
   // let btnStart: createjs.Bitmap;
   let btnStart: objects.Button;
+  let assetManager: createjs.LoadQueue;
+  let assetManifest: any; // a placeholder for now
+
+  assetManifest = [
+    // do whatever you want with this
+    // an array of assets (type any)
+    {
+      id: "btnStart",
+      src: "./assets/images/btn-start.png"
+    }
+  ];
 
   function Init(): void {
     console.log("Initializing game ...");
-    Start();
+    
+    // now preloads assets
+    assetManager = new createjs.LoadQueue(); // creates the asset mgr object
+    assetManager.installPlugin(createjs.Sound); // install sound object w/ asset mgr
+    assetManager.loadManifest(assetManifest); // load the asset manifest
+    assetManager.on("complete", Start); // replaces Start()
+    // Start();
   }
 
   function Start(): void {
@@ -25,8 +43,8 @@
 
   function Update(): void {
     helloLabel.rotation += 1.44;
-    helloLabel.scaleX = 1.5;
-    helloLabel.scaleY = 1.5;
+    helloLabel.scaleX = 1.125;
+    helloLabel.scaleY = 1.125;
     // helloLabel.regX = 3;
     // btnStart.rotation += 1;
     stage.update(); // redraws the stage
@@ -35,25 +53,36 @@
   function Main(): void {
     console.log("Game started!");
 
-    helloLabel = new createjs.Text(
+    helloLabel = new objects.Label(
       "CreateJS Game",
-      "32px Arial, Helvetica",
-      "#CC6633"
+      "34px",
+      "Arial",
+      "#da4",
+      320,
+      240,
+      true
     );
 
-    helloLabel.regX = Math.floor(helloLabel.getMeasuredWidth() * 0.5);
-    helloLabel.regY = Math.floor(helloLabel.getMeasuredHeight() * 0.5);
-    console.log(`hl regX: ${helloLabel.regX}, hl regY: ${helloLabel.regY}`);
+    // helloLabel = new createjs.Text(
+    //   "CreateJS Game",
+    //   "32px Arial, Helvetica",
+    //   "#CC6633"
+    // );
 
-    helloLabel.x = canvas.width * 0.5;
-    helloLabel.y = canvas.height * 0.5;
+    // helloLabel.regX = Math.floor(helloLabel.getMeasuredWidth() * 0.5);
+    // helloLabel.regY = Math.floor(helloLabel.getMeasuredHeight() * 0.5);
+    // console.log(`hl regX: ${helloLabel.regX}, hl regY: ${helloLabel.regY}`);
 
-    console.log(`hl x: ${helloLabel.x}, hl y: ${helloLabel.y}`);
+    // helloLabel.x = canvas.width * 0.5;
+    // helloLabel.y = canvas.height * 0.5;
+
+    // console.log(`hl x: ${helloLabel.x}, hl y: ${helloLabel.y}`);
 
     stage.addChild(helloLabel);
+    
 
     // btnStart = new createjs.Bitmap("./assets/images/btn-start.png");
-    btnStart = new objects.Button("./assets/images/btn-start.png", 10, 10);
+    btnStart = new objects.Button(assetManager, "btnStart", 120, 40);
     // btnStart.regX = btnStart.getBounds().width * 0.5;
     // btnStart.regY = btnStart.getBounds().height * 0.5;
 

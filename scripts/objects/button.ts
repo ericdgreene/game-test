@@ -4,12 +4,18 @@ namespace objects {
     // Public properties
     // Constructor
     constructor(
-      imagePath: string, 
+      assetManager: createjs.LoadQueue,
+      imageString: string, 
       x: number = 0, 
       y: number = 0
     ) {
-      super(imagePath);
+      // super(imageString); // use Asset Mgr instead
+      super(assetManager.getResult(imageString));
 
+      // now regX and regY are possible with use of Asset Mgr
+      this.regX = this.getBounds().width * 0.5;
+      this.regY = this.getBounds().height * 0.5;
+      
       this.x = x;
       this.y = y;
 
